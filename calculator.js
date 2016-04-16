@@ -68,8 +68,9 @@ var calculator = function() {
 
   /**
    * Sanitizes the expression by replacing placeholder operators with the javascript one
+   * as well as removing other invalid characters that doesn't meet certain patterns
    * @param  {string} expression mathematical expression to be evaluated
-   * @return {string} sanitized expression with the appropriate javscript operators
+   * @return {string} sanitized expression with the appropriate javascript operators
    */
   var sanitizeExpression = function(expression) {
     var lastChar = expression[expression.length - 1];
