@@ -82,6 +82,11 @@ var calculator = function() {
       expression = expression.replace(/.$/, '');
     }
 
+    // Parse any number(not floats) that starts with 0 to an integer e.g. 070 to 70
+    expression = expression.replace(/\b0+\d+\b(?!\.)/g , function(match) {
+      return parseInt(match);
+    });
+
     /** 
      * Regex checks for any string that has the operator(^) in the middle 
      * with numbers to the right and left of it. e.g. -2^2, 3^5, 3.5^4
