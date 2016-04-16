@@ -1,0 +1,38 @@
+p {
+  font-size: 11px;
+}
+* {
+  outline: none;
+}
+#expression-input-field {
+  padding: 3px;
+  width: 183px;
+  text-align: right;
+  border: 1px solid #ccc;
+}
+.result-screen {
+  height: 19px;
+  padding: 4px 10px 0 10px;
+}
+.calculator-btns {
+  padding: 10px;
+}
+.number-btn {
+  width: 35px;
+}
+.operation-btn {
+  width: 35px;
+}
+.clear-btn {
+  width: 73px;
+  background-color: green;
+  color: white;
+}
+.calculator-body {
+  margin: 0 auto;
+  background-color: #F5923E;
+  width: 211px;
+  padding: 10px;
+  box-shadow:  0 2px 3px #888888;
+  border-radius: 12px;
+}

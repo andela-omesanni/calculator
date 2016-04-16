@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+
+  <body>
+    <div>
+      <div class="calculator-body">
+        <div class="result-screen">
+          <input type="text" id="expression-input-field" name="digitInput" readonly />
+        </div>
+        <div class="calculator-btns">
+          <button name="btn1" class="number-btn" value="1" onclick='calculator.updateExpressionInputField(1)'>1</button>
+          <button name="btn2" class="number-btn" value="2" onclick='calculator.updateExpressionInputField(2)'>2</button>
+          <button name="btn3" class="number-btn" value="3" onclick='calculator.updateExpressionInputField(3)'>3</button>
+          <button name="minusBtn" class="operation-btn" onclick='calculator.operatorButtonClicked("-")'>-</button>
+          <button name="divideBtn" class="operation-btn" onclick='calculator.operatorButtonClicked("÷")'>÷</button>
+          <br>
+          <button name="btn4" class="number-btn" value="4" onclick='calculator.updateExpressionInputField(4)'>4</button>
+          <button name="btn5" class="number-btn" value="5" onclick='calculator.updateExpressionInputField(5)'>5</button>
+          <button name="btn6" class="number-btn" value="6" onclick='calculator.updateExpressionInputField(6)'>6</button>
+          <button name="plusBtn" class="operation-btn" onclick='calculator.operatorButtonClicked("+")'>+</button>
+          <button name="multiplyBtn" class="operation-btn" onclick='calculator.operatorButtonClicked("x")'>x</button>
+          <br>
+          <button name="btn7" class="number-btn" value="7" onclick='calculator.updateExpressionInputField(7)'>7</button>
+          <button name="btn8" class="number-btn" value="8" onclick='calculator.updateExpressionInputField(8)'>8</button>
+          <button name="btn9" class="number-btn" value="9" onclick='calculator.updateExpressionInputField(9)'>9</button>
+          <button name="equalsBtn" class="operation-btn" onclick='calculator.operatorButtonClicked("=")'>=</button>
+          <button name="backBtn" class="operation-btn" onclick='calculator.clearLastCharacter()'>&larr;</button>
+          <br>
+          <button name="btn0" class="number-btn" value="0" onclick='calculator.updateExpressionInputField(0)'>0</button>
+          <button name="exponentialBtn" class="operation-btn" onclick='calculator.operatorButtonClicked("^")'>X <sup>y</sup></button>
+          <button name="clearBtn" class="clear-btn" onclick='calculator.clearScreen()'>CLEAR</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
