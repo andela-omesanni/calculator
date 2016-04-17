@@ -84,8 +84,10 @@ var calculator = function() {
     }
 
     // Parse any number(not floats) that starts with 0 to an integer e.g. 070 to 70
-    expression = expression.replace(/\b0+\d+\b(?!\.)/g , function(match) {
-      return parseInt(match);
+    expression = expression.replace(/(?:^|[^\d.])(0\d+)(?![\d.])/g , function(match) {
+      match = isNaN(parseInt(match[0])) ?  match[0] + parseInt(match.substr(1)) : parseInt(match);
+
+      return match;
     });
 
     /** 
