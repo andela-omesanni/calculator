@@ -47,7 +47,10 @@ var calculator = function() {
    * @param {string} character button number or operator that was clicked on the calculator
    */
   var updateExpressionInputField = function(character) { 
-    if(expressionInput.value == 0) {
+    var doNotConcatenate = (expressionInput.value == 'Infinity') || (expressionInput.value == 'error')
+                            || (expressionInput.value == 0);
+
+    if(doNotConcatenate) {
       expressionInput.value = character;
 
       return ;
@@ -63,6 +66,10 @@ var calculator = function() {
 
   // Clears the last character in expression input field
   var clearLastCharacter = function() {
+    if(expressionInput.value == 'Infinity' || expressionInput.value == 'error') {
+      return clearScreen();
+    }
+
     expressionInput.value = expressionInput.value.replace(/.$/, '');
   };
 
@@ -97,9 +104,15 @@ var calculator = function() {
     var regex = /([+-]?\d+(?:\.\d+)?)\^([+-]?\d+(?:\.\d+)?)/
 
     while(expression.indexOf('^') !== -1) {
+      var exponential;
+
       expression = expression.replace(regex, function(match, first, second) {
-        return Math.pow(first, second);
+        exponential = Math.pow(first, second);
+
+        return exponential;
       });
+
+      expression = (exponential == 'Infinity') ? exponential.toString() : expression;
     }
 
     return expression;
@@ -128,13 +141,14 @@ var calculator = function() {
    * @param  {string} operator the operator that was clicked e.g. +
    */
   var operatorButtonClicked = function(operator) {
+    var validExpression = (expressionInput.value != 'Infinity' && expressionInput.value != 'error');
     var expressionInputVal = expressionInput.value;
 
     if(operator == '=') {
       evaluateExpression(expressionInputVal);
     }
     // Another operator was clicked
-    else if(operators.indexOf(operator) > -1) {
+    else if(operators.indexOf(operator) > -1 && validExpression) {
       var lastChar = expressionInputVal[expressionInputVal.length - 1];
       
       // Add operator if the expression input field is not empty and an operator is not the last character
